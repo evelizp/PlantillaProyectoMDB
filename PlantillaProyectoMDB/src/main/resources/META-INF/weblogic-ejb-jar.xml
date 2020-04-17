@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wls:weblogic-ejb-jar
+    xmlns:wls="http://xmlns.oracle.com/weblogic/weblogic-ejb-jar"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+                        http://java.sun.com/xml/ns/javaee/ejb-jar_3_1.xsd 
+                        http://xmlns.oracle.com/weblogic/weblogic-ejb-jar 
+                        http://xmlns.oracle.com/weblogic/weblogic-ejb-jar/1.6/weblogic-ejb-jar.xsd">
+    <!--weblogic-version:12.2.1 -->
+
+    <wls:weblogic-enterprise-bean>
+        <wls:ejb-name>PlantillaProyectoMDBBean</wls:ejb-name>
+
+        <wls:message-driven-descriptor>
+            <wls:pool>
+                <wls:max-beans-in-free-pool>5</wls:max-beans-in-free-pool>
+                <wls:initial-beans-in-free-pool>5</wls:initial-beans-in-free-pool>
+            </wls:pool>
+            <wls:destination-jndi-name>pe.com.claro.jndi.queue.plantillaproyecto.mdb.queue</wls:destination-jndi-name>
+
+            <wls:connection-factory-jndi-name>pe.com.claro.jndi.connection.factory.plantillaproyecto.mdb.cf</wls:connection-factory-jndi-name>
+        </wls:message-driven-descriptor>
+
+        <wls:transaction-descriptor>
+            <wls:trans-timeout-seconds>60</wls:trans-timeout-seconds>
+        </wls:transaction-descriptor>
+
+    </wls:weblogic-enterprise-bean>
+</wls:weblogic-ejb-jar>
